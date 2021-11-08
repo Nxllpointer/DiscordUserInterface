@@ -2,7 +2,8 @@
 
 Create application-like messages with buttons and other features for JDA.
 
-[![](https://jitpack.io/v/LiquidDevect/DiscordUserInterface.svg)](https://jitpack.io/#LiquidDevect/DiscordUserInterface)
+Import with JitPack: <br>
+[![](https://jitpack.io/v/LiquidDevect/DiscordUserInterface.svg)](https://jitpack.io/#LiquidDevect/DiscordUserInterface) 
 
 ## How to use
 
