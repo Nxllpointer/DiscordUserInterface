@@ -10,7 +10,7 @@ Create application-like messages with buttons and other features for JDA.
 
 ```java
 import de.liquid.discordui.UiController;
-UiController uiController=new UiController(JDA,TextChannel);
+UiController uiController = new UiController(JDA, TextChannel);
 ```
 
 **Step 2:** create menu class(es) and implement the required methods and the constructor.
@@ -122,7 +122,7 @@ public class ExampleMenu extends UserInterface {
     @Override
     public @Nullable TemporalAccessor getTimestamp() {
 
-        // Disable the Timestamp
+        // Disable the timestamp
         return null;
     }
 }
@@ -147,4 +147,4 @@ uiController.displayUI(new ExampleMenu(uiController));
 
 **Todo** | **Status**
 ---------|-----------
-Medthod to get user input | Not begun
+Method to get user input | Not begun
