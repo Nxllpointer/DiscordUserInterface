@@ -110,6 +110,7 @@ public class ExampleMenu extends UserInterface {
 
         return buttonList;
     }
+    
 
     // Other examples of implemented methods
 
@@ -121,7 +122,6 @@ public class ExampleMenu extends UserInterface {
 
     @Override
     public @Nullable TemporalAccessor getTimestamp() {
-
         // Disable the timestamp
         return null;
     }
