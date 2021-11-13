@@ -26,7 +26,7 @@ public abstract class UserInterface {
     @Nullable
     public abstract String getDescription();
 
-    @NotNull
+    @Nullable
     public abstract Color getColor();
 
     public abstract @Nullable Collection<UiButton> getButtons();
