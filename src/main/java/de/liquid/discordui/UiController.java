@@ -13,6 +13,7 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
+import javax.lang.model.type.UnionType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class UiController {
         embedBuilder.setTitle(ui.getTitle());
         embedBuilder.setColor(ui.getColor());
         embedBuilder.setDescription(ui.getDescription());
-        embedBuilder.setAuthor(ui.getAuthor());
+        embedBuilder.setAuthor(ui.getAuthorName(), ui.getAuthorLink(), ui.getAuthorIconUrl());
         embedBuilder.setThumbnail(thumbnail == null ? ui.getThumbnailUrl() : "attachment://" + thumbnail.filename);
         embedBuilder.setImage(image == null ? ui.getImageUrl() : "attachment://" + image.filename);
         embedBuilder.setFooter(ui.getFooter());

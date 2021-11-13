@@ -29,10 +29,21 @@ public abstract class UserInterface {
     @Nullable
     public abstract Color getColor();
 
-    public abstract @Nullable Collection<UiButton> getButtons();
+    @Nullable
+    public abstract Collection<UiButton> getButtons();
 
     @Nullable
-    public String getAuthor() {
+    public String getAuthorName() {
+        return null;
+    }
+
+    @Nullable
+    public String getAuthorLink() {
+        return null;
+    }
+
+    @Nullable
+    public String getAuthorIconUrl() {
         return null;
     }
 
