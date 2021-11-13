@@ -87,8 +87,12 @@ public class UiController {
             messageAction = messageAction.addFile(image.data, image.filename);
         }
 
-        uiMessage = messageAction.complete();
-        currentUi = ui;
+        Message uiMessagePre = uiMessage;
+
+        messageAction.queue(message -> {
+            uiMessage = message;
+            currentUi = ui;
+        });
 
     }
 
