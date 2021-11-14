@@ -2,7 +2,7 @@ package de.liquid.discordui;
 
 import de.liquid.discordui.buttons.ButtonClickHandler;
 import de.liquid.discordui.menus.UserInterface;
-import de.liquid.discordui.util.FilenameDataPair;
+import de.liquid.discordui.files.FilenameDataPair;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.MessageBuilder;
@@ -13,7 +13,6 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
-import javax.lang.model.type.UnionType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +52,7 @@ public class UiController {
         embedBuilder.setImage(image == null ? ui.getImageUrl() : "attachment://" + image.filename);
         embedBuilder.setFooter(ui.getFooter());
         embedBuilder.setTimestamp(ui.getTimestamp());
-
+        if (ui.getFields() != null) ui.getFields().forEach(embedBuilder::addField);
 
         messageBuilder.setContent(ui.getUnembeddedMessage());
         messageBuilder.setEmbed(embedBuilder.build());
@@ -86,8 +85,6 @@ public class UiController {
         if (image != null) {
             messageAction = messageAction.addFile(image.data, image.filename);
         }
-
-        Message uiMessagePre = uiMessage;
 
         messageAction.queue(message -> {
             uiMessage = message;

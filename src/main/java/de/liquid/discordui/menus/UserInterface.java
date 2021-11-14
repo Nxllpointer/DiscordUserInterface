@@ -3,7 +3,8 @@ package de.liquid.discordui.menus;
 
 import de.liquid.discordui.UiController;
 import de.liquid.discordui.buttons.UiButton;
-import de.liquid.discordui.util.FilenameDataPair;
+import de.liquid.discordui.files.FilenameDataPair;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -64,6 +65,11 @@ public abstract class UserInterface {
 
     @Nullable
     public FilenameDataPair getImageBytes() {
+        return null;
+    }
+
+    @Nullable
+    public Collection<MessageEmbed.Field> getFields() {
         return null;
     }
 

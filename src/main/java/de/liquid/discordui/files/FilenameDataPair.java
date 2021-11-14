@@ -1,4 +1,4 @@
-package de.liquid.discordui.util;
+package de.liquid.discordui.files;
 
 public class FilenameDataPair {
 
