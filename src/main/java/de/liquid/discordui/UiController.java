@@ -1,6 +1,7 @@
 package de.liquid.discordui;
 
 import de.liquid.discordui.buttons.ButtonClickHandler;
+import de.liquid.discordui.buttons.UiButton;
 import de.liquid.discordui.menus.UserInterface;
 import de.liquid.discordui.files.FilenameDataPair;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -8,12 +9,14 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class UiController {
@@ -43,6 +46,8 @@ public class UiController {
 
         FilenameDataPair image = ui.getImageBytes();
         FilenameDataPair thumbnail = ui.getThumbnailBytes();
+        Collection<UiButton> uiButtons = ui.getButtons();
+        Collection<MessageEmbed.Field> fields = ui.getFields();
 
         embedBuilder.setTitle(ui.getTitle());
         embedBuilder.setColor(ui.getColor());
@@ -52,15 +57,15 @@ public class UiController {
         embedBuilder.setImage(image == null ? ui.getImageUrl() : "attachment://" + image.filename);
         embedBuilder.setFooter(ui.getFooter());
         embedBuilder.setTimestamp(ui.getTimestamp());
-        if (ui.getFields() != null) ui.getFields().forEach(embedBuilder::addField);
+        if (fields != null) fields.forEach(embedBuilder::addField);
 
         messageBuilder.setContent(ui.getUnembeddedMessage());
         messageBuilder.setEmbed(embedBuilder.build());
 
-        if (ui.getButtons() != null && !ui.getButtons().isEmpty()) {
+        if (uiButtons != null && !uiButtons.isEmpty()) {
 
             List<Button> buttons = new ArrayList<>();
-            ui.getButtons().forEach(uiButton -> {
+            uiButtons.forEach(uiButton -> {
                 buttons.add(uiButton.button);
                 buttonClickHandler.registerButton(uiButton);
             });
